@@ -2,6 +2,10 @@ source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.1.3", ">= 8.1.3.1"
+# Pin to the json version bundled with Ruby: json 3.x made JSON.parse's second
+# argument keyword-only, which breaks activesupport's JSON.parse(json, options) call
+# (positional) used when decrypting session cookies.
+gem "json", "~> 2.9"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 # Use sqlite3 as the database for Active Record
